@@ -11,7 +11,7 @@ import com.example.wheather.Entites.Wheather;
 
 @Component
 public class wheatherService {
-	private static final String  apiKey = "c6ae3f81bd200a7bd00314a38a32f9b1";
+	private static final String  apiKey = "513daafdefcb84c9e3816f8c9ce19c9c";
 	private static final String  API  = "https://api.weatherstack.com/current?access_key=API_KEY&query=CITY";
 	
 	@Autowired
@@ -23,5 +23,10 @@ public class wheatherService {
 		Wheather body =  reponse.getBody();
 		return body;
 	}
+	
+//	public Wheather getWheatherByCity() {
+//		String final_API  = API.replace("CITY").replace("API_KEY", apiKey);
+//		
+//	}
 
 }
