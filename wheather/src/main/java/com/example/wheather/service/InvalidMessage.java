@@ -1,4 +1,4 @@
-package com.example.wheather.Controller;
+package com.example.wheather.service;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

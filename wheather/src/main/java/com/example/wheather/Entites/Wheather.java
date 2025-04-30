@@ -128,7 +128,6 @@ public class Wheather {
 	}
 
 	
-	
 }
 
 
