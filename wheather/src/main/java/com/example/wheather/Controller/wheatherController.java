@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.wheather.Entites.Wheather;
 import com.example.wheather.service.wheatherServiceImpl;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/wheather")
+@Slf4j
 public class wheatherController {
 	
-	@SuppressWarnings("unused")
 	@Autowired
 	private wheatherServiceImpl service;
 	
@@ -24,6 +26,12 @@ public class wheatherController {
       return new ResponseEntity<>(service.getWheatherDetails(city1) , HttpStatus.OK);
 		
 	}
+//	@GetMapping("/getMsgUser/{city}")
+//	public ResponseEntity<?>  getMsgUser(@PathVariable String city1) {
+//		return new ResponseEntity<>(service.getMsgUser(city1),HttpStatus.OK);
+//	}
+//	
+
 	
 
 	
