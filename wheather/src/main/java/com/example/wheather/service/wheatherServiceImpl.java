@@ -32,10 +32,6 @@ public class wheatherServiceImpl implements WheatherService{
 	String humadity = " ";
 	String PressuerMessage = " ";
 	
-	
-	
-	
-	
 	public String getWheatherDetails(String city1) {
 	Wheather reponse1 =  getWheather(city1);
 	
@@ -46,14 +42,14 @@ public class wheatherServiceImpl implements WheatherService{
 		getcountry = " County is " + reponse1.getLocation().getCountry();
 		
 		
-		String s1 = getWheatherDetails(city1);
-		String s2 = "";
-		
-		List<User> user = UserserviceImpl.getAllUser();
-		for(int i=0; i<user.size(); i++) {
-			if(user.get(i).getHomeLocation().equalsIgnoreCase(s1));
-			System.out.println("is equals to Home location: " + user.get(i).getId());
-		}
+//		String s1 = getWheatherDetails(city1);
+//		String s2 = "";
+//		
+//		List<User> user = UserserviceImpl.getAllUser();
+//		for(int i=0; i<user.size(); i++) {
+//			if(user.get(i).getHomeLocation().equalsIgnoreCase(s1));
+//			System.out.println("is equals to Home location: " + user.get(i).getId());
+//		}
 		
 		
 		if(reponse1.getCurrent().getWindSpeed() > 30  && reponse1.getCurrent().getHumidity() > 60  && reponse1.getCurrent().getPressure() < 1009) {
@@ -75,6 +71,11 @@ public class wheatherServiceImpl implements WheatherService{
 	else {
 		throw new InvalidMessage("you Enter details are invalid :");
 	}
+//	Wheather alertResponse = new Wheather();
+//	  alertResponse.setLocation(reponse1.getLocation());
+//	
+//	  return alertResponse.getLocation().toString();
+	  
 	return "Today "  + getWheather  + " ," +  getLocation + " ," +  getRegion + " ," + getcountry  +  thunderStromMessage + message1 + humadity + PressuerMessage;
 	
 	}
@@ -91,11 +92,12 @@ public class wheatherServiceImpl implements WheatherService{
 	@Override
 	public void getMsgUser(String city1) {
 		// TODO Auto-generated method stub
-		String s1 = getWheatherDetails(city1);
+		String s1 = "city1";
 		String s2 = "";
 		
 		List<User> user = UserserviceImpl.getAllUser();
 		for(int i=0; i<user.size(); i++) {
+			
 			if(user.get(i).getHomeLocation().equalsIgnoreCase(s1));
 			System.out.println("is equals to Home location: " + user.get(i).getId());
 		}
@@ -104,7 +106,7 @@ public class wheatherServiceImpl implements WheatherService{
 	}
 
 }
-////List<User> user = UserserviceImpl.getAllUser();
+//List<User> user = UserserviceImpl.getAllUser();
 //for(int i=0; i<user.size(); i++) {
 //	if(user.get(i).getHomeLocation().equalsIgnoreCase(s1));
 //	s2 =  "is equals to Home location: " + user.get(i).getId() ;
