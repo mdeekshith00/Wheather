@@ -26,11 +26,12 @@ public class wheatherController {
       return new ResponseEntity<>(service.getWheatherDetails(city1) , HttpStatus.OK);
 		
 	}
-//	@GetMapping("/getMsgUser/{city}")
-//	public ResponseEntity<?>  getMsgUser(@PathVariable String city1) {
-//		return new ResponseEntity<>(service.getMsgUser(city1),HttpStatus.OK);
-//	}
-//	
+	
+	@GetMapping("/getMsgUser/{city1}")
+	public ResponseEntity<?> getMsgUser(String city1) {
+		return new ResponseEntity<>(service.getMsgUser(city1) , HttpStatus.OK);
+	}
+
 
 	
 

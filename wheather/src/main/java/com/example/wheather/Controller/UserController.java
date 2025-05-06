@@ -59,6 +59,16 @@ public class UserController {
 	public ResponseEntity<String> deleteUserById(@PathVariable int id) {
 		return new ResponseEntity<>(service.deleteUserById(id)  + id,HttpStatus.OK);
 	}
+	@PostMapping("/register")
+	public User register(@RequestBody User user) {
+		return service.register(user);
+	}
+	@PostMapping("/login")
+	public String login(@RequestBody User user) {
+//		service.login(user);
+		System.out.println(user);
+		return "sucess";
+	}
 	
 
 }

@@ -31,6 +31,7 @@ public class wheatherServiceImpl implements WheatherService{
 	String message1 = " ";
 	String humadity = " ";
 	String PressuerMessage = " ";
+	String getMsg = "";
 	
 	public String getWheatherDetails(String city1) {
 	Wheather reponse1 =  getWheather(city1);
@@ -40,17 +41,8 @@ public class wheatherServiceImpl implements WheatherService{
 		getLocation = " Location  is :" + reponse1.getLocation().getName();
 		getRegion = " Region is :" + reponse1.getLocation().getRegion();
 		getcountry = " County is " + reponse1.getLocation().getCountry();
-		
-		
-//		String s1 = getWheatherDetails(city1);
-//		String s2 = "";
-//		
-//		List<User> user = UserserviceImpl.getAllUser();
-//		for(int i=0; i<user.size(); i++) {
-//			if(user.get(i).getHomeLocation().equalsIgnoreCase(s1));
-//			System.out.println("is equals to Home location: " + user.get(i).getId());
-//		}
-		
+	
+//		getMsg = getMsgUser(city1);
 		
 		if(reponse1.getCurrent().getWindSpeed() > 30  && reponse1.getCurrent().getHumidity() > 60  && reponse1.getCurrent().getPressure() < 1009) {
 			thunderStromMessage = " it may causes Thunder strom : %n  Be Care Full  ";
@@ -76,7 +68,7 @@ public class wheatherServiceImpl implements WheatherService{
 //	
 //	  return alertResponse.getLocation().toString();
 	  
-	return "Today "  + getWheather  + " ," +  getLocation + " ," +  getRegion + " ," + getcountry  +  thunderStromMessage + message1 + humadity + PressuerMessage;
+	return "Today "  + getWheather  + " ," +  getLocation + " ," +  getRegion + " ," + getcountry  +  thunderStromMessage + message1 + humadity + PressuerMessage ;
 	
 	}
 	
@@ -90,28 +82,31 @@ public class wheatherServiceImpl implements WheatherService{
 
 
 	@Override
-	public void getMsgUser(String city1) {
+	public String getMsgUser(String city1) {
 		// TODO Auto-generated method stub
-		String s1 = "city1";
-		String s2 = "";
+//		Wheather reponse1 =  getWheather(city1);
+		String regex = "[,\\s\\.]";
+		String[] s2 = getWheatherDetails(city1).split(regex);
+		
 		
 		List<User> user = UserserviceImpl.getAllUser();
 		for(int i=0; i<user.size(); i++) {
 			
-			if(user.get(i).getHomeLocation().equalsIgnoreCase(s1));
-			System.out.println("is equals to Home location: " + user.get(i).getId());
+			if(user.get(i).getHomeLocation().equalsIgnoreCase(s2[7].toString())) {
+				return "Its Equals To my Entered City Name : ";
+			
+			} else {
+				return "Its NOt Equals To my Entered City Name : ";
+			}
+			
 		}
+		return "Its NOt Equals To my Entered City Name : ";
 		
 		
 	}
 
 }
-//List<User> user = UserserviceImpl.getAllUser();
-//for(int i=0; i<user.size(); i++) {
-//	if(user.get(i).getHomeLocation().equalsIgnoreCase(s1));
-//	s2 =  "is equals to Home location: " + user.get(i).getId() ;
-//}
-//return s2;
+
 
 	
 

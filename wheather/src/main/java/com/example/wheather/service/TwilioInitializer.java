@@ -1,22 +1,22 @@
-package com.example.wheather.service;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
-import com.example.wheather.Entites.TwilioConfiguration;
-import com.twilio.Twilio;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-
-@Configuration
-public class TwilioInitializer {
-	private final static Logger LOGGER = LoggerFactory.getLogger(TwilioInitializer.class);
-	
-	
-
-//	private final TwilioConfiguration twilioConfiguration;
+//package com.example.wheather.service;
+//
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.context.annotation.Configuration;
+//import com.example.wheather.Entites.TwilioConfiguration;
+//import com.twilio.Twilio;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
+//
+//
+//@Configuration
+//public class TwilioInitializer {
+//	private final static Logger LOGGER = LoggerFactory.getLogger(TwilioInitializer.class);
+//	
 //	
 //	@Autowired
+//	private  TwilioConfiguration twilioConfiguration;
+//	
+//
 //	public TwilioInitializer(TwilioConfiguration twilioConfiguration) {
 //		this.twilioConfiguration=twilioConfiguration;
 //	
@@ -24,5 +24,5 @@ public class TwilioInitializer {
 //		LOGGER.info("Twilio initilazed ... with account sid{}" ,twilioConfiguration.getAccountSid() );
 //	
 //	}
-	
-}
+//	
+//}

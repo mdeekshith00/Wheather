@@ -14,6 +14,7 @@ public interface UserService {
 	List<User> getUserByhomeLocation(String homelocation);
 	List<User> getUserByofficeLocation(String officelocation);
 	List<User> getUserByotherLocation(String otherLocation);
+	String login(User user);
 
 	
 

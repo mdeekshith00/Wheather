@@ -1,22 +1,33 @@
 package com.example.wheather.service;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import com.example.wheather.Entites.User;
 import com.example.wheather.Repositary.UserRepositary;
 
 @Service
-public class UserserviceImpl implements UserService {
+public class UserserviceImpl implements UserDetailsService, UserService {
 	@Autowired
 	private UserRepositary repositary;
+//	@Autowired
+//	private AuthorizationManager  authManager;
+	
+	 
+	@SuppressWarnings("unused")
+	private  BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
 	
 
 	@Override
 	public User addUser(User u) {
 		// TODO Auto-generated method stub
+	
 		User user = repositary.save(u);
 		return user;
 	}
@@ -85,6 +96,35 @@ public class UserserviceImpl implements UserService {
 		}
 		return "deleted User By Id : " ;
 	}
+
+	@Override
+	public String login(User user) {
+		// TODO Auto-generated method stub
+		repositary.save(user);
+		return "sucess";
+	}
+
+	public String verify(User user) {
+		// TODO Auto-generated method stub
+		return "sucess";
+	}
+//
+//	Authentication authentication =  authManager.authenticate(new UsernamePasswordAuthenticationToken(user.getId() , user.getName()));
+//	if(authentication.isAuthenticated())
+//	return "sucess";
+//	return "fail";
+
+	public User register(User user) {
+		// TODO Auto-generated method stub
+		return repositary.save(user);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		return repositary.findByName(username);
+	}
+	
 
 	
 }
